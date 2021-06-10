@@ -10,7 +10,7 @@ from collections import OrderedDict
 #To add modularity later on, first the default model
 class EnvNet(Model):
 	def __init__(self,classes,config):
-		#super(EnvNet,self).__init__()
+		super(EnvNet,self).__init__()
 		if(config==1):
 			self.feature_extractor = FeatureBlock1()
 		elif(config==2):

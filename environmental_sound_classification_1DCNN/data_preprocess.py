@@ -5,8 +5,8 @@ import librosa
 
 def make_frames(filename,folder,frame_length,overlapping_fraction):
 	''' takes the .wav file name, frame length and overlapping percentage and returns numpy arrays of frames and classes'''
-	if filename == '.DS_Store':
-		return None
+	#if filename == '.DS_Store':
+	#	return None
 	print('processing file' + filename)
 	class_id = filename.split('-')[1]
 	filename = './UrbanSound8K/audio'+'/'+folder + '/'+filename
@@ -30,6 +30,7 @@ def make_frames_folder(folders,frame_length,overlapping_fraction):
 			if res is not None:
 				data.append(res)
 	dataset = data[0]
+	print("Stacking data...")
 	for i in range(1,len(data)):
 		dataset = np.vstack((dataset,data[i]))
 	return dataset	
